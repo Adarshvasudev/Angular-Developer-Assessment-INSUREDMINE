@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 
 ##Clone the repository
-git clone <repository-url>
+`git clone <repository-url>
 cd StarWarApp
 npm insatll
-ng serve
+ng serve`
