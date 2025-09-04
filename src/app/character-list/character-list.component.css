@@ -1,0 +1,105 @@
+.starWar {
+  margin: 0px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background-color: #1b75bc;
+  padding: 20px;
+  color: white;
+  position: relative;
+}
+
+.header-left {
+  display: flex;
+}
+
+.header-title {
+  font-size: 36px;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+.action-icon {
+  cursor: pointer;
+  color: #1b75bc;
+}
+
+.header-right {
+  display: flex;
+  align-items: flex-end;
+}
+
+.header-subtitle {
+  font-size: 14px;
+  color: white;
+  align-self: flex-end;
+}
+
+.content {
+  display: flex;
+  margin: 20px;
+  gap: 20px;
+}
+
+.card {
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 200px;
+  border-radius: 12px;
+  opacity: 1;
+  background: #ffffff;
+  box-sizing: border-box;
+  border: 1px solid #cdcfd0 !important;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.3) !important;
+}
+.tableContainer {
+  border: 1px solid #cdcfd0 !important;
+}
+.card-30 {
+  width: 20%;
+}
+
+.card-70 {
+  width: 80%;
+}
+.primary_button {
+  border-radius: 6px;
+  opacity: 1;
+  background: #1b75bc;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz" auto;
+  color: #ffffff;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+}
+.clear_button {
+  border-radius: 6px;
+  opacity: 1;
+  background: #cdcfd0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz" auto;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+::ng-deep .mat-mdc-table thead {
+  background-color: #1b75bc !important;
+  color: white !important;
+}
+::ng-deep .mat-mdc-header-cell {
+  color: white !important;
+}
+.headertype {
+  color: #1b75bc;
+}

@@ -1,0 +1,129 @@
+<div class="starWar">
+  <div class="header">
+    <div class="header-left">
+      <span class="header-title">STAR WARS</span>
+    </div>
+    <div class="header-right">
+      <span class="header-subtitle">a swapi project</span>
+    </div>
+  </div>
+  <div class="content">
+    <div class="card card-30">
+      <!-- Card 1 content here -->
+      <p class="headertype">Filters</p>
+      <form [formGroup]="filterForm">
+        <mat-form-field>
+          <mat-label>Movie Name</mat-label>
+          <mat-select multiple formControlName="movies">
+            @for (item of moviesList; track item) {
+            <mat-option [value]="item.url">{{ item.title }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <div>
+          <mat-form-field>
+            <mat-label>Species</mat-label>
+            <mat-select multiple formControlName="species">
+              @for (item of speciesList; track item) {
+              <mat-option [value]="item.url">{{ item.name }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Vechicle</mat-label>
+            <mat-select multiple formControlName="vechicles">
+              @for (item of vechiclesList; track item) {
+              <mat-option [value]="item.url">{{ item.name }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Star Ship</mat-label>
+            <mat-select multiple formControlName="starship">
+              @for (item of starshipList; track item) {
+              <mat-option [value]="item.url">{{ item.name }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Birth Year</mat-label>
+            <mat-select multiple formControlName="birthYear">
+              @for (item of birthYearList; track item) {
+              <mat-option [value]="item">{{ item }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
+      <div>
+        <button class="primary_button" (click)="applyFilter()">
+          Apply Filters
+        </button>
+        <button class="clear_button" color="warn" (click)="clearFilter()">
+          Clear Filters
+        </button>
+      </div>
+    </div>
+    <div class="card card-70">
+      <!-- Card 2 content here -->
+      <div class="tableContainer">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+          <ng-container matColumnDef="Sl">
+            <th mat-header-cell *matHeaderCellDef>Sl No.</th>
+            <td mat-cell *matCellDef="let element; let i = index">
+              {{ pageSize * pageInd + (i + 1) }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Character Name</th>
+            <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="species">
+            <th mat-header-cell *matHeaderCellDef>Species</th>
+            <td mat-cell *matCellDef="let element">{{ element?.species }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="year">
+            <th mat-header-cell *matHeaderCellDef>Birth Year</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element?.birth_year }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+              (click)="viewDetails(element)"
+            >
+              <mat-icon class="action-icon">visibility</mat-icon>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+      <mat-paginator
+        [length]="PepoleList.length"
+        [pageSize]="pageSize"
+        [pageIndex]="pageInd"
+        hidePageSize="true"
+        (page)="onPageChange($event)"
+      >
+      </mat-paginator>
+    </div>
+  </div>
+</div>

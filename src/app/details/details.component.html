@@ -1,0 +1,63 @@
+<div class="starWar">
+  <div class="header">
+    <div class="header-left">
+      <span class="header-title">STAR WARS</span>
+    </div>
+    <div class="header-right">
+      <span class="header-subtitle">a swapi project</span>
+    </div>
+  </div>
+  <div class="arrow">
+    <mat-icon (click)="backToList()">arrow_back</mat-icon>
+  </div>
+  <div class="content">
+    <div class="card card-30">
+      <div style="display: flex; justify-content: center">
+        <div class="profile">
+          <mat-icon class="profile-icon">language</mat-icon>
+        </div>
+      </div>
+      <p>Name: {{ personDetails?.name }}</p>
+      <p>Birth Year: {{ personDetails?.birth_year }}</p>
+      <p>Gender: {{ personDetails?.gender }}</p>
+      <p>Height: {{ personDetails?.height }}</p>
+      <p>Weight: {{ personDetails?.mass }}</p>
+      <p>Created at: {{ personDetails?.name }}</p>
+      <p>Edited at: {{ personDetails?.name }}</p>
+      <p>Hair Color: {{ personDetails?.hair_color }}</p>
+      <p>Eye Color: {{ personDetails?.eye_color }}</p>
+      <p>Skin Color: {{ personDetails?.skin_color }}</p>
+      <p>Species: {{ personDetails?.speciesNames }}</p>
+    </div>
+    <div class="card card-70">
+      <div>
+        <h3 class="headertype">Flims</h3>
+
+        @for( film of personDetails?.filmsDeatils; track film) {
+        <div class="sub-card">
+          <h5>{{ film?.title }}</h5>
+          <p>Director: {{ film?.director }}</p>
+          <p>Producer: {{ film?.producer }}</p>
+          <p>Release Date: {{ film?.release_date }}</p>
+        </div>
+        }
+      </div>
+
+      @if( personDetails?.vechicleDeatils.length) {
+      <h3 class="headertype">Vechicles</h3>
+      <div class="sub-card">
+        @for( van of personDetails?.vechicleDeatils; track van) {
+        <p>{{ van?.name }}</p>
+        }
+      </div>
+      } @if( personDetails?.shipDeatils.length) {
+      <h3 class="headertype">Starships</h3>
+      <div class="sub-card">
+        @for( ship of personDetails?.shipDeatils; track ship) {
+        <p>{{ ship?.name }}</p>
+        }
+      </div>
+      }
+    </div>
+  </div>
+</div>
